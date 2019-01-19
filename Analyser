@@ -1,0 +1,16 @@
+def analyse(data,axis=0):
+    if axis==0:
+        import numpy as np
+        data=np.array(data)
+    space="   "*axis
+    print(space+"axis=",axis)
+    print(space+"shape=",data.shape)
+    print(space+"type=",type(data))
+    print("")
+    if len(data.shape)!=0:
+        element_shape=data[0].shape
+        return analyse(data[0],axis+1)
+
+        for i in range(1,data.shape[0]):
+            if element_shape!=data.shape[i]:
+                return analyse(data[i],axis+1)
